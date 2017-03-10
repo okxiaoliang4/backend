@@ -1,0 +1,230 @@
+html,
+body {
+	background-color: #2A3F54;
+}
+
+ul {
+	padding: 0px;
+}
+
+.container {
+	width: 100%;
+	padding: 0px;
+}
+
+#my-nav {
+	width: 200px;
+	position: absolute;
+}
+
+.my-nav-box {
+	background-color: #2A3F54;
+	-webkit-display: flex;
+	display: flex;
+	flex-direction: column;
+	color: #FFF;
+	min-height: 100%;
+}
+
+.my-nav-switch {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 100%;
+	top: 0px;
+	background-color: #009ABD;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.my-nav-switch .my-nav-switch-button-top {
+	border-top: 3px solid #FFF;
+	width: 20px;
+	position: absolute;
+	top: 13px;
+	left: 10px;
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+
+.my-nav-switch .my-nav-switch-button-bottom {
+	border-top: 3px solid #FFF;
+	width: 20px;
+	position: absolute;
+	top: 25px;
+	left: 10px;
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
+
+.my-nav-title-body {
+	padding: 10px 0px;
+	font-size: 18px;
+	text-align: center;
+}
+
+.my-nav-title-body .my-nav-title-word {
+	margin: 0px 5px;
+}
+
+.my-nav-tab {
+	height: 100%;
+}
+
+.my-nav-tab>ul>li {
+	margin-bottom: 5px;
+}
+
+.my-nav-tab>ul>li.active {
+	border-right: 5px solid #5F89B3;
+}
+
+.my-nav-tab>ul>li>a {
+	padding: 10px 15px;
+	position: relative;
+	display: block;
+	cursor: pointer;
+	color: #E7E7E7;
+	font-size: 15px;
+}
+
+.my-nav-tab>ul>li>a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+
+.my-nav-tab>ul>li>a .tab-icon {
+	font-size: 18px;
+}
+
+.my-nav-tab-text {
+	margin-left: 10px;
+}
+
+.my-nav-tab-down {
+	/*position: absolute;
+	right: 30px;*/
+	float: right;
+}
+
+.my-nav-tab-child-tab {
+	display: block;
+	overflow: hidden;
+	height: 100%;
+}
+
+.my-nav-tab-child-tab li {
+	position: relative;
+	padding-left: 30px;
+}
+
+
+/*.my-nav-tab-child-tab li:after {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 1px;
+	background-color: #CACACA;
+	top: 50%;
+	left: 25px;
+}
+
+.my-nav-tab-child-tab li:before {
+	content: "";
+	position: absolute;
+	border-left: 1px solid #CACACA;
+	top: 0;
+	bottom: 0;
+	left: 25px;
+}
+
+.my-nav-tab-child-tab li:last-child {
+	position: relative;
+	padding-left: 30px;
+}
+
+.my-nav-tab-child-tab li:last-child:before {
+	height: 50%;
+}*/
+
+.my-nav-tab-child-tab li a {
+	padding: 5px 5px 5px 10px;
+	display: block;
+	cursor: pointer;
+	color: #E7E7E7;
+	font-size: 14px;
+}
+
+.my-nav-tab-child-tab li a:hover {
+	text-decoration: none;
+	color: #FFF;
+}
+
+.my-nav-tab-child-tab li a:after {
+	content: "";
+	position: absolute;
+	width: 12px;
+	height: 1px;
+	background-color: #CACACA;
+	top: 50%;
+	left: 25px;
+}
+
+.my-nav-tab-child-tab li a:before {
+	content: "";
+	position: absolute;
+	border-left: 1px solid #CACACA;
+	top: 0;
+	bottom: 0;
+	left: 25px;
+}
+
+.my-nav-tab-child-tab li a:last-child:before {
+	height: 50%;
+}
+
+#right {
+	background: #F7F7F7;
+	margin-left: 200px;
+	height: 1000px;
+}
+
+.no-selection::-moz-selection {
+	background: transparent;
+}
+
+.no-selection::selection {
+	background: transparent;
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 100%;
+	}
+	#my-nav {
+		width: 250px;
+	}
+	#right {
+		background: #F7F7F7;
+		margin-left: 250px;
+		height: 1000px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 100%;
+	}
+}
