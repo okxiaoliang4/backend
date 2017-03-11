@@ -43,11 +43,11 @@ ul {
 	position: absolute;
 	top: 13px;
 	left: 10px;
-	transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-moz-transform: rotate(45deg);
-	-webkit-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
 }
 
 .my-nav-switch .my-nav-switch-button-bottom {
@@ -56,11 +56,11 @@ ul {
 	position: absolute;
 	top: 25px;
 	left: 10px;
-	transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-webkit-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
+	transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
 }
 
 .my-nav-title-body {
@@ -75,10 +75,6 @@ ul {
 
 .my-nav-tab {
 	height: 100%;
-}
-
-.my-nav-tab>ul>li {
-	margin-bottom: 5px;
 }
 
 .my-nav-tab>ul>li.active {
@@ -99,6 +95,11 @@ ul {
 	color: #FFF;
 }
 
+.my-nav-tab>ul>li>a.active {
+	box-shadow: rgba(0, 0, 0, .25) 0 1px 0, inset rgba(255, 255, 255, .16) 0 1px 0;
+	background: linear-gradient(#334556, #2C4257), #2A3F54;
+}
+
 .my-nav-tab>ul>li>a .tab-icon {
 	font-size: 18px;
 }
@@ -116,10 +117,10 @@ ul {
 .my-nav-tab-child-tab {
 	display: block;
 	overflow: hidden;
-	height: 100%;
+	height: 0px;
 }
 
-.my-nav-tab-child-tab li {
+.my-nav-tab-child-tab>li {
 	position: relative;
 	padding-left: 30px;
 }
@@ -153,20 +154,25 @@ ul {
 	height: 50%;
 }*/
 
-.my-nav-tab-child-tab li a {
-	padding: 5px 5px 5px 10px;
+.my-nav-tab-child-tab>li>a {
+	padding: 10px 20px 10px 0px;
+	margin-left: 10px;
 	display: block;
 	cursor: pointer;
 	color: #E7E7E7;
 	font-size: 14px;
 }
 
-.my-nav-tab-child-tab li a:hover {
+.my-nav-tab-child-tab>li>a.active {
+	background: #3a5773;
+}
+
+.my-nav-tab-child-tab>li>a:hover {
 	text-decoration: none;
 	color: #FFF;
 }
 
-.my-nav-tab-child-tab li a:after {
+.my-nav-tab-child-tab>li>a:after {
 	content: "";
 	position: absolute;
 	width: 12px;
@@ -176,7 +182,7 @@ ul {
 	left: 25px;
 }
 
-.my-nav-tab-child-tab li a:before {
+.my-nav-tab-child-tab>li>a:before {
 	content: "";
 	position: absolute;
 	border-left: 1px solid #CACACA;
@@ -185,7 +191,7 @@ ul {
 	left: 25px;
 }
 
-.my-nav-tab-child-tab li a:last-child:before {
+.my-nav-tab-child-tab>li:last-child>a:before {
 	height: 50%;
 }
 

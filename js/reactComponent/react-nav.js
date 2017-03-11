@@ -62,9 +62,9 @@ class MyNav extends React.Component {
 		$(".tabButton").off("click");
 		$(".tabButton").on("click", function() {
 			if($(this).siblings('ul').attr("data-isOpen") == "true") {
-				myAnimateObject.hideChildren($(this));
+				myAnimateObject.hideNavTabChildren($(this));
 			} else {
-				myAnimateObject.showChildren($(this));
+				myAnimateObject.showNavTabChildren($(this));
 			}
 		});
 	}
@@ -98,7 +98,7 @@ class MyNavBarTab extends React.Component {
 	render() {
 		var tabs = this.props.tabsData.map(function(tab) {
 			var tabClassName = "fa fa-" + tab.icon + " tab-icon";
-			
+
 			var arrow;
 			var children;
 			if(tab.children.length != 0) {
@@ -109,13 +109,13 @@ class MyNavBarTab extends React.Component {
 						)
 					)
 				});
-				arrow = React.createElement("i", {className: "fa fa-chevron-up my-nav-tab-down"});
+				arrow = React.createElement("i", {className: "fa fa-chevron-down my-nav-tab-down"});
 				children =
-					React.createElement("ul", {className: "my-nav-tab-child-tab", "data-isOpen": "true"}, 
+					React.createElement("ul", {className: "my-nav-tab-child-tab", "data-isOpen": "false"}, 
 						childrenitem
 					);
 			}
-			
+
 			return(
 				React.createElement("li", null, 
 					React.createElement("a", {className: "tabButton", href: tab.link}, 

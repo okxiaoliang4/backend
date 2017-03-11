@@ -1,27 +1,41 @@
 var myAnimateObject = (function(myAnimateObject) {
 
-	myAnimateObject.showChildren = function(jqueryElement) {
-		var childrenNum = jqueryElement.siblings('ul').children("li").length;
-		jqueryElement.siblings('ul').attr("data-isOpen", "true");
-		jqueryElement.siblings('ul').stop().velocity({
-			"height": childrenNum * 30,
-			"opacity": 1
-		});
-		jqueryElement.children(".my-nav-tab-down").stop().velocity({
+	myAnimateObject.showNavTabChildren = function(jqueryElement) {
+		var otherTab = $(".my-nav-tab-child-tab[data-isOpen=true]").not(jqueryElement.siblings('ul'));
+		$(".tabButton.active").removeClass("active");
+		otherTab.parent().find(".my-nav-tab-down").velocity({
 			"rotateX": "0deg"
 		});
-	}
-
-	myAnimateObject.hideChildren = function(jqueryElement) {
-		var childrenNum = jqueryElement.siblings('ul').children("li").length;
-		jqueryElement.siblings('ul').attr("data-isOpen", "flase");
-		jqueryElement.siblings('ul').stop().velocity({
-			"height": "0%",
+		otherTab.attr("data-isOpen", "false").stop().velocity({
+			"height": "0px",
 			"opacity": 0
+		});
+		
+		jqueryElement.addClass("active");
+		jqueryElement.siblings('ul').stop().velocity({
+			"height": jqueryElement.siblings('ul')[0].scrollHeight + "px",
+			"opacity": 1
 		});
 		jqueryElement.children(".my-nav-tab-down").stop().velocity({
 			"rotateX": "180deg"
 		});
+		jqueryElement.siblings('ul').attr("data-isOpen", "true");
+	}
+
+	myAnimateObject.hideNavTabChildren = function(jqueryElement) {
+		jqueryElement.removeClass("active");
+		jqueryElement.find(".my-nav-tab-child-tab").attr("data-isOpen", "false").stop().velocity({
+			"height": "0px",
+			"opacity": 0
+		});
+		jqueryElement.siblings('ul').stop().velocity({
+			"height": "0px",
+			"opacity": 0
+		});
+		jqueryElement.children(".my-nav-tab-down").stop().velocity({
+			"rotateX": "0deg"
+		});
+		jqueryElement.siblings('ul').attr("data-isOpen", "flase");
 	}
 
 	return myAnimateObject;
