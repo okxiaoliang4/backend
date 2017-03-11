@@ -2,12 +2,12 @@ class MyNav extends React.Component {
 
 	initialState() {
 		return {
-			titleWord: "后台管理模板",
+			titleWord: "Jelf",
 			tabsData: [{
 				icon: "home",
 				text: "首頁",
 				children: [],
-				link: "/"
+				link: "#"
 			}, {
 				icon: "edit",
 				text: "编辑",
@@ -47,10 +47,10 @@ class MyNav extends React.Component {
 
 	render() {
 		return(
-			<div className="my-nav-box">
+			<div className="my-nav-box" data-isOpen="true">
 				<MyNavBarTitle titleWord={this.state.titleWord}/>
 				<MyNavBarTab tabsData={this.state.tabsData}/>
-				<div className="my-nav-switch">
+				<div className="my-nav-switch" data-isOpen="true">
 					<div className="my-nav-switch-button-top"></div>
 					<div className="my-nav-switch-button-bottom"></div>
 				</div>
@@ -60,11 +60,20 @@ class MyNav extends React.Component {
 
 	componentDidMount() {
 		$(".tabButton").off("click");
+		$(".my-nav-switch").off("click");
+
 		$(".tabButton").on("click", function() {
 			if($(this).siblings('ul').attr("data-isOpen") == "true") {
 				myAnimateObject.hideNavTabChildren($(this));
 			} else {
 				myAnimateObject.showNavTabChildren($(this));
+			}
+		});
+		$(".my-nav-switch").on("click", function() {
+			if($(this).attr("data-isOpen") == "true") {
+				myAnimateObject.foldMyNav();
+			} else {
+				myAnimateObject.unfoldedMyNav();
 			}
 		});
 	}
@@ -80,9 +89,7 @@ class MyNavBarTitle extends React.Component {
 	render() {
 		return(
 			<div className="my-nav-title-body">
-				<i className="fa fa-gear"></i>
 				<span className="my-nav-title-word">{this.props.titleWord}</span>
-				<i className="fa fa-gear"></i>
 			</div>
 		);
 	}
