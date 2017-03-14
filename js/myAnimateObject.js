@@ -2,45 +2,48 @@ var myAnimateObject = (function(myAnimateObject) {
 
 	myAnimateObject.showNavTabChildren = function(jqueryElement) {
 		var otherTabChildren = $(".my-nav-tab-child-tab[data-isOpen=true]").not(jqueryElement.siblings('ul'));
-		$(".tabButton.active").removeClass("active");
+		$(".tabButton.select").removeClass("select");
 		otherTabChildren.siblings(".tabButton").children(".my-nav-tab-down").velocity({
 			"rotateX": "0deg"
-		});
+		}, 400);
 		otherTabChildren.attr("data-isOpen", "false").stop().velocity({
 			"height": "0px",
 			"opacity": 0
-		});
+		}, 400);
 
-		jqueryElement.addClass("active");
+		jqueryElement.addClass("select");
 		if(jqueryElement.siblings('ul')[0] != null) {
 			jqueryElement.siblings('ul').stop().velocity({
 				"height": jqueryElement.siblings('ul')[0].scrollHeight + "px",
 				"opacity": 1
-			}, function() {
-				jqueryElement.siblings('ul').css("height", "auto");
+			}, {
+				duration: 400,
+				complete: function() {
+					jqueryElement.siblings('ul').css("height", "auto");
+				}
 			});
 			jqueryElement.children(".my-nav-tab-down").stop().velocity({
 				"rotateX": "180deg"
-			});
+			}, 400);
 			jqueryElement.siblings('ul').attr("data-isOpen", "true");
 		}
 	}
 
 	myAnimateObject.hideNavTabChildren = function(jqueryElement) {
-		jqueryElement.removeClass("active");
+		jqueryElement.removeClass("select");
 		jqueryElement.find(".my-nav-tab-child-tab").attr("data-isOpen", "false").stop().velocity({
 			"height": "0px",
 			"opacity": 0
-		});
+		}, 400);
 		if(jqueryElement.siblings('ul')[0] != null) {
 			jqueryElement.siblings('ul').stop().velocity({
 				"height": "0px",
 				"opacity": 0
-			});
+			}, 400);
 		}
 		jqueryElement.children(".my-nav-tab-down").stop().velocity({
 			"rotateX": "0deg"
-		});
+		}, 400);
 		jqueryElement.siblings('ul').attr("data-isOpen", "flase");
 	}
 
@@ -50,10 +53,10 @@ var myAnimateObject = (function(myAnimateObject) {
 		$(".my-nav-tab>ul>li>a").removeClass("center");
 		$(".my-nav-switch-button-top").stop().velocity({
 			rotateZ: "-45deg",
-		});
+		}, 400);
 		$(".my-nav-switch-button-bottom").stop().velocity({
 			rotateZ: "45deg",
-		});
+		}, 400);
 	}
 
 	myAnimateObject.foldMyNav = function() { // 折叠
@@ -61,13 +64,11 @@ var myAnimateObject = (function(myAnimateObject) {
 		$(".container.backend").addClass("fold");
 		$(".my-nav-switch-button-top").stop().velocity({
 			rotateZ: "45deg",
-		});
+		}, 400);
 		$(".my-nav-switch-button-bottom").stop().velocity({
 			rotateZ: "-45deg",
-		});
-		setTimeout(function() {
-			$(".my-nav-tab>ul>li>a").addClass("fold");
-		}, 150);
+		}, 400);
+		$(".my-nav-tab>ul>li>a").addClass("fold");
 	}
 
 	return myAnimateObject;

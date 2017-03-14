@@ -1,6 +1,6 @@
-class MyNav extends React.Component {
+var MyNav = React.createClass({displayName: "MyNav",
 
-	initialState() {
+	getInitialState: function() {
 		return {
 			titleWord: "Jelf",
 			tabsData: [{
@@ -38,14 +38,8 @@ class MyNav extends React.Component {
 				}]
 			}]
 		}
-	}
-
-	constructor(props) {
-		super(props);
-		this.state = this.initialState();
-	}
-
-	render() {
+	},
+	render: function() {
 		return(
 			React.createElement("div", {className: "my-nav-box"}, 
 				React.createElement(MyNavBarTitle, {titleWord: this.state.titleWord}), 
@@ -56,9 +50,8 @@ class MyNav extends React.Component {
 				)
 			)
 		);
-	}
-
-	componentDidMount() {
+	},
+	componentDidMount: function() {
 		$(".tabButton").off("click");
 		$(".my-nav-switch").off("click");
 
@@ -77,32 +70,22 @@ class MyNav extends React.Component {
 			}
 		});
 	}
-}
+});
 
-class MyNavBarTitle extends React.Component {
+var MyNavBarTitle = React.createClass({displayName: "MyNavBarTitle",
 
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	render() {
+	render: function() {
 		return(
 			React.createElement("div", {className: "my-nav-title-body"}, 
 				React.createElement("span", {className: "my-nav-title-word"}, this.props.titleWord)
 			)
 		);
 	}
-}
+})
 
-class MyNavBarTab extends React.Component {
+var MyNavBarTab = React.createClass({displayName: "MyNavBarTab",
 
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	render() {
+	render: function() {
 		var tabs = this.props.tabsData.map(function(tab) {
 			var tabClassName = "fa fa-" + tab.icon + " tab-icon";
 
@@ -143,6 +126,6 @@ class MyNavBarTab extends React.Component {
 			)
 		);
 	}
-}
+})
 
 var myNav = ReactDOM.render(React.createElement(MyNav, null), document.getElementById("my-nav"));
