@@ -1,3 +1,8 @@
+html,
+body {
+	background-color: #F9F9F9;
+}
+
 ul {
 	padding: 0px;
 }
@@ -20,12 +25,17 @@ a {
 	z-index: 101;
 }
 
-#my-nav {
+.my-nav {
 	height: calc(100% - 50px);
+	[;
+	height: 100%;
+	];
+	/*css hack safari safari不支持calc函数*/
 	position: fixed;
 	top: 50px;
 	width: 200px;
 	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
 	z-index: 100;
 }
 
@@ -107,6 +117,7 @@ a {
 	color: #CCC;
 	font-size: 15px;
 	transition: width, background 0.4s;
+	-webkit-transition: width, background 0.4s;
 }
 
 .my-nav-tab>ul>li>a:hover {
@@ -134,6 +145,7 @@ a {
 	margin-left: 10px;
 	opacity: 1;
 	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
 }
 
 .my-nav-tab-down {
@@ -197,7 +209,6 @@ a {
 	min-height: 1000px;
 	transform: translateY(50px);
 	padding: 45px 15px 20px 15px;
-	background-color: #F9F9F9;
 }
 
 #content .contentItem {
@@ -206,7 +217,7 @@ a {
 	margin-bottom: 20px;
 }
 
-.backend.fold #my-nav {
+.backend.fold .my-nav {
 	transform: translateX(-100%);
 }
 
@@ -232,13 +243,13 @@ a {
 	.container.backend {
 		width: 100%;
 	}
-	#my-nav {
+	.my-nav {
 		width: 250px;
 		position: absolute;
 		top: 50px;
 		float: left;
 	}
-	.backend.fold #my-nav {
+	.backend.fold .my-nav {
 		width: 80px;
 		transform: translateX(0px);
 	}
