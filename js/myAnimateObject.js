@@ -57,6 +57,11 @@ var myAnimateObject = (function(myAnimateObject) {
 		$(".my-nav-switch-button-bottom").stop().velocity({
 			rotateZ: "45deg",
 		}, 400);
+
+		if(util.isSafari() && document.body.clientWidth >= 992) {
+			var bodyWidth = document.body.clientWidth;
+			document.getElementById("content").style.width = (bodyWidth - 250) + "px";
+		}
 	}
 
 	myAnimateObject.foldMyNav = function() { // 折叠
@@ -69,6 +74,11 @@ var myAnimateObject = (function(myAnimateObject) {
 			rotateZ: "-45deg",
 		}, 400);
 		$(".my-nav-tab>ul>li>a").addClass("fold");
+
+		if(util.isSafari() && document.body.clientWidth >= 992) {
+			var bodyWidth = document.body.clientWidth;
+			document.getElementById("content").style.width = (bodyWidth - 80) + "px";
+		}
 	}
 
 	return myAnimateObject;
